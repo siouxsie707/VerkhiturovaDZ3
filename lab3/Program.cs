@@ -4,6 +4,7 @@ class Program
 {
     static void Main()
     {
+        Console.WriteLine("Лабораторная 3");
         try
         {
             Console.Write("Введите номер дня в году (1-365): ");
