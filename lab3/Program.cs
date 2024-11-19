@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Лабораторная 3");
+        Console.WriteLine("Задание номер 1");
         try
         {
             Console.Write("Введите номер дня в году (1-365): ");
@@ -12,38 +12,18 @@ class Program
 
             if (dayOfYear < 1 || dayOfYear > 365)
             {
-                throw new ArgumentOutOfRangeException("Число должно быть в диапазоне от 1 до 365.");
+                throw new ArgumentOutOfRangeException("Число должно быть в диапазоне от 1 до 365");
             }
 
             Console.Write("Введите год: ");
             int year = int.Parse(Console.ReadLine());
 
-            // Определяем, является ли год високосным
-            bool isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-
-            // Количество дней в каждом месяце
-            int[] daysInMonth = isLeapYear
-                ? new int[] { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
-                : new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
-            int month = 0;
-
-            // Определяем месяц и день
-            for (int i = 0; i < daysInMonth.Length; i++)
-            {
-                if (dayOfYear <= daysInMonth[i])
-                {
-                    month = i + 1;
-                    int day = dayOfYear; // Находим день
-                    Console.WriteLine($"Дата: {day} {GetMonthName(month)}");
-                    return;
-                }
-                dayOfYear -= daysInMonth[i];
-            }
+            DateTime date = new DateTime(year, 1, 1).AddDays(dayOfYear - 1);
+            Console.WriteLine($"Дата: {date.Day} {GetMonthName(date.Month)}");
         }
         catch (FormatException)
         {
-            Console.WriteLine("Некорректный ввод, убедитесь что вы вводите число.");
+            Console.WriteLine("Некорректный ввод");
         }
         catch (ArgumentOutOfRangeException ex)
         {
@@ -57,8 +37,21 @@ class Program
 
     static string GetMonthName(int month)
     {
-        string[] monthNames = { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
-                                "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
-        return monthNames[month - 1];
+        switch (month)
+        {
+            case 1: return "Январь";
+            case 2: return "Февраль";
+            case 3: return "Март";
+            case 4: return "Апрель";
+            case 5: return "Май";
+            case 6: return "Июнь";
+            case 7: return "Июль";
+            case 8: return "Август";
+            case 9: return "Сентябрь";
+            case 10: return "Октябрь";
+            case 11: return "Ноябрь";
+            case 12: return "Декабрь";
+            default: throw new ArgumentOutOfRangeException("Некорректный ввод");
+        }
     }
 }
