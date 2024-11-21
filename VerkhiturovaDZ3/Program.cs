@@ -5,26 +5,26 @@ class Program
 {
     static void Main()
     {
-        // Задача 1: Проверка упорядоченности последовательности чисел
+        // Задача 1
         CheckSortedSequence();
 
-        // Задача 2: Определение достоинства карты по её номеру
+        // Задача 2
         CheckCardValue();
 
-        // Задача 3: Выбор напитка по профессии
+        // Задача 3
         GetDrinkByProfession();
 
-        // Задача 4: Вывод названия дня недели по номеру
+        // Задача 4
         PrintDayOfWeek();
 
-        // Задача 5: Подсчёт кукол
+        // Задача 5
         CountDollsInBag();
     }
 
     // Задача 1
     static void CheckSortedSequence()
     {
-        Console.WriteLine("Задача 1");
+        Console.WriteLine("Задача 1. Последовательность чисел");
         int[] numbers = new int[10];
         Console.WriteLine("Введите 10 чисел(каждое число с новой строки):");
         for (int i = 0; i < 10; i++)
@@ -51,7 +51,7 @@ class Program
     {
         try
         {
-            Console.WriteLine("Задача 2");
+            Console.WriteLine("Задача 2. Определение достоинства карт");
             Console.Write("Введите номер карты (6-14): ");
             int k = int.Parse(Console.ReadLine());
             string cardValue;
@@ -90,7 +90,7 @@ class Program
     // Задача 3
     static void GetDrinkByProfession()
     {
-        Console.WriteLine("Задача 3");
+        Console.WriteLine("Задача 3. Таблица");
         Console.Write("Введите профессию: ");
         string input = Console.ReadLine()?.ToLowerInvariant();
         string output;
@@ -137,7 +137,7 @@ class Program
 
     static void PrintDayOfWeek()
     {
-        Console.WriteLine("Задача 4");
+        Console.WriteLine("Задача 4. Название дня недели по его номеру");
         Console.Write("Введите номер дня недели (1-7): ");
         int dayNumber = int.Parse(Console.ReadLine()); if (Enum.IsDefined(typeof(DaysOfWeek), dayNumber))
         {
@@ -153,7 +153,7 @@ class Program
     // Задача 5
     static void CountDollsInBag()
     {
-        Console.WriteLine("Задача 5");
+        Console.WriteLine("Задача 5. Подсчет кукол");
         string[] dollsArray = { "Hello Kitty", "Barbie doll", "Teddy Bear", "Action Figure", "Dollhouse" };
         List<string> bag = new List<string>();
 
